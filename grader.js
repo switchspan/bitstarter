@@ -86,11 +86,10 @@ if(require.main == module) {
 
     if (program.url) {
 	rest.get(program.url).on('success', function(result) {
-	    var checkJson = checkRawHtml(result, program.checks);
-	    var outJson = JSON.stringify(checkJson, null, 4);
-	    console.log(outJson);
+var checkJson = checkRawHtml(result, program.checks);
+var outJson = JSON.stringify(checkJson, null, 4);
+console.log(outJson);
 	});
-
     } else {
 	var checkJson = checkHtmlFile(program.file, program.checks);
 	var outJson = JSON.stringify(checkJson, null, 4);
@@ -98,4 +97,5 @@ if(require.main == module) {
     }
 } else {
     exports.checkHtmlFile = checkHtmlFile;
+    exports.checkRawHtml = checkRawHtml;
 }
